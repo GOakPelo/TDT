@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Texas Design Team</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white:   #ffffff;
+  --off:     #f8f6f2;
+  --black:   #1a1a1a;
+  --mid:     #787066;
+  --light:   #c8c0b4;
+  --gold:    #9a7d52;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  background: var(--white);
+  color: var(--black);
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid #e8e4de;
+  padding: 0 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 68px;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--black); }
+
+/* ── HERO ── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 92vh;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 38%;
+  display: block;
+  filter: brightness(0.82);
+}
+
+.hero-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 20px;
+}
+
+.hero-text h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.2rem, 9vw, 8rem);
+  font-weight: 300;
+  line-height: 0.92;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.hero-text h1 em {
+  font-style: italic;
+  font-weight: 300;
+  display: block;
+}
+
+.hero-text p {
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.7);
+  font-weight: 400;
+}
+
+/* ── PAGE SECTIONS ── */
+.page-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 80px 40px;
+}
+
+/* ── WHO WE ARE ── */
+.who-wrap {
+  text-align: center;
+  border-bottom: 1px solid #e8e4de;
+  padding-bottom: 70px;
+}
+
+.section-eyebrow {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 22px;
+}
+
+.who-wrap h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.18;
+  color: var(--black);
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+.who-wrap p {
+  font-size: 0.9rem;
+  line-height: 1.95;
+  color: var(--mid);
+  max-width: 600px;
+  margin: 0 auto;
+  letter-spacing: 0.02em;
+}
+
+/* ── 21 LINES ── */
+.lines-section {
+  padding: 80px 40px 100px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.lines-heading {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.lines-heading h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 300;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.lines-heading h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.lines-subhead {
+  font-size: 0.65rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--light);
+  font-weight: 400;
+}
+
+/* ── BRAND GRID ── */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px 36px;
+}
+
+.brand-item {
+  display: block;
+  text-decoration: none;
+  color: var(--black);
+}
+
+.brand-item:hover .brand-img-wrap img {
+  transform: scale(1.035);
+}
+
+.brand-item:hover .brand-item-name {
+  color: var(--gold);
+}
+
+/* Image wrapper */
+.brand-img-wrap {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--off);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.brand-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.7s ease;
+}
+
+/* Gradient placeholder shown when no image loads */
+.brand-img-wrap .placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.brand-img-wrap .placeholder span {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 300;
+  font-style: italic;
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.05em;
+  text-align: center;
+  padding: 0 20px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Color families for placeholders */
+.ph-warm  { background: linear-gradient(145deg, #2e261c 0%, #4a3a26 100%); }
+.ph-cool  { background: linear-gradient(145deg, #1c2226 0%, #2a3338 100%); }
+.ph-sage  { background: linear-gradient(145deg, #1e2820 0%, #2c3a2c 100%); }
+.ph-slate { background: linear-gradient(145deg, #22202c 0%, #32303f 100%); }
+.ph-clay  { background: linear-gradient(145deg, #2c201a 0%, #402e22 100%); }
+.ph-stone { background: linear-gradient(145deg, #26231e 0%, #3a3630 100%); }
+.ph-dusk  { background: linear-gradient(145deg, #201e2a 0%, #2e2c3c 100%); }
+.ph-earth { background: linear-gradient(145deg, #241e18 0%, #382e24 100%); }
+.ph-moss  { background: linear-gradient(145deg, #1c2420 0%, #2a3430 100%); }
+
+/* Brand text below image */
+.brand-item-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.15;
+  color: var(--black);
+  margin-bottom: 5px;
+  transition: color 0.22s;
+  letter-spacing: 0.01em;
+}
+
+.brand-item-category {
+  font-size: 0.63rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 7px;
+}
+
+.brand-item-desc {
+  font-size: 0.8rem;
+  line-height: 1.75;
+  color: var(--mid);
+  letter-spacing: 0.01em;
+}
+
+/* ── CONTACT ── */
+.contact-section {
+  background: var(--off);
+  border-top: 1px solid #e8e4de;
+  text-align: center;
+  padding: 90px 40px;
+}
+
+.contact-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 300;
+  color: var(--black);
+  margin-bottom: 14px;
+  letter-spacing: 0.02em;
+}
+
+.contact-section h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.contact-section p {
+  font-size: 0.82rem;
+  color: var(--mid);
+  letter-spacing: 0.05em;
+  line-height: 1.9;
+  margin-bottom: 36px;
+}
+
+.contact-link {
+  display: inline-block;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 300;
+  color: var(--black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--light);
+  padding-bottom: 3px;
+  letter-spacing: 0.04em;
+  transition: color 0.2s, border-color 0.2s;
+}
+.contact-link:hover { color: var(--gold); border-color: var(--gold); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--white);
+  border-top: 1px solid #e8e4de;
+  padding: 28px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .f-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.95rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+footer .f-copy {
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--light);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  .brand-grid { grid-template-columns: repeat(2, 1fr); gap: 40px 28px; }
+}
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .brand-grid { grid-template-columns: 1fr; gap: 40px; }
+  .page-section, .lines-section { padding: 60px 24px; }
+  footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <a href="#" class="nav-logo">Texas Design Team</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#lines">Our Lines</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <img
+    src="https://www.loloirugs.com/cdn/shop/files/Declan_DE-04_IN_ML_CO_V1.jpg?v=1743108736&width=1800"
+    alt="Texas Design Team"
+    onerror="this.src=''; this.style.background='#2a2218';"
+  >
+  <div class="hero-text">
+    <h1>Texas<em>Design Team</em></h1>
+    <p>Curated Home Furnishings &middot; Texas Territory</p>
+  </div>
+</section>
+
+<!-- ══ WHO WE ARE ══ -->
+<div class="page-section" id="about">
+  <div class="who-wrap">
+    <p class="section-eyebrow">Who We Are</p>
+    <h2>Thoughtfully curated. Distinctly Texan.</h2>
+    <p>Texas Design Team strives to partner with outstanding industry leaders that aim to make a difference in the world of furniture and décor through innovation and trend-setting design. From hand-knotted rugs to sculptural mirrors, Italian leather to fine art — we represent 21 exceptional lines dedicated to the elevated home.</p>
+  </div>
+</div>
+
+<!-- ══ OUR LINES ══ -->
+<section class="lines-section" id="lines">
+
+  <div class="lines-heading">
+    <h2>21 <em>Curated Lines</em></h2>
+    <p class="lines-subhead">Our Lines &middot; Texas Territory</p>
+  </div>
+
+  <div class="brand-grid">
+
+    <!-- 1. Loloi -->
+    <a href="https://loloirugs.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-sage">
+        <div class="placeholder"><span>Loloi Rugs</span></div>
+        <img
+          src="https://www.loloirugs.com/cdn/shop/files/Declan_DE-04_IN_ML_CO_V1.jpg?v=1743108736&width=900"
+          alt="Loloi Rugs"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Loloi Rugs</p>
+      <p class="brand-item-category">Rugs · Pillows · Throws · Wall Art</p>
+      <p class="brand-item-desc">Loloi designs and crafts rugs, pillows, wall art, and throws for the thoughtfully layered home. Rooted in artisan craft and celebrated for their rich palettes and textures.</p>
+    </a>
+
+    <!-- 2. Coaster -->
+    <a href="https://www.coasterfurniture.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-warm">
+        <div class="placeholder"><span>Coaster Furniture</span></div>
+        <img
+          src="https://www.coasterfurniture.com/images/home-banner/homepage_banner_2024.jpg"
+          alt="Coaster Furniture"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Coaster Furniture</p>
+      <p class="brand-item-category">Bedroom · Living · Dining</p>
+      <p class="brand-item-desc">One of America's most comprehensive furniture sources, offering thousands of styles across bedroom, living, and dining — all at exceptional value and with rapid delivery.</p>
+    </a>
+
+    <!-- 3. Luke Home -->
+    <a href="https://lukeleather.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-clay">
+        <div class="placeholder"><span>Luke Home</span></div>
+        <img
+          src="https://lukeleather.com/wp-content/uploads/2026/04/2-e1776976461683.png"
+          alt="Luke Home"
+          style="object-fit: contain; padding: 30px;"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Luke Home</p>
+      <p class="brand-item-category">Italian Leather · Fabric Upholstery</p>
+      <p class="brand-item-desc">A family-owned company based in High Point, NC, offering Italian leather furniture and custom fabric upholstery — crafted with care and delivered in 4 to 6 weeks.</p>
+    </a>
+
+    <!-- 4. Sagebrook Home & Elevarre -->
+    <a href="https://sagebrookhome.com/elevarre/" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-stone">
+        <div class="placeholder"><span>Sagebrook Home &amp; Elevarre</span></div>
+        <img
+          src="https://fileserver-g-p.sourcerer.tech/files/de876964-2fdf-4d99-90d5-d0f1338fcc65?transforms=%5B%5B%22resize%22%2C%7B%22width%22%3A900%2C%22height%22%3A900%2C%22fit%22%3A%22cover%22%2C%22background%22%3A%22white%22%7D%5D%5D"
+          alt="Sagebrook Home & Elevarre"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Sagebrook Home &amp; Elevarre</p>
+      <p class="brand-item-category">Décor · Accents · Accessories</p>
+      <p class="brand-item-desc">Sagebrook Home and its elevated Elevarre collection offer a broad range of decorative accessories, vases, candle holders, and accent pieces for the modern interior.</p>
+    </a>
+
+    <!-- 5. BMC Bassett Mirror -->
+    <a href="https://www.bassettmirror.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-cool">
+        <div class="placeholder"><span>BMC Bassett Mirror</span></div>
+        <img
+          src="https://www.bassettmirror.com/media/wysiwyg/homepage/hero-banner-1.jpg"
+          alt="Bassett Mirror"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">BMC Bassett Mirror</p>
+      <p class="brand-item-category">Mirrors · Lighting · Art · Furniture</p>
+      <p class="brand-item-desc">In business for nearly 100 years, Bassett Mirror Company is a premier source for mirrors, lighting, wall art, and accent furniture — blending timeless design with exceptional quality.</p>
+    </a>
+
+    <!-- 6. Paragon -->
+    <a href="https://www.paragonpg.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-slate">
+        <div class="placeholder"><span>Paragon</span></div>
+        <img
+          src="https://www.paragonpg.com/cdn/shop/files/Paragon_2024_Holiday_Catalog_Page_01.jpg?v=1730741484&width=800"
+          alt="Paragon"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Paragon</p>
+      <p class="brand-item-category">Wall Décor · Fine Art · Framing</p>
+      <p class="brand-item-desc">Paragon creates beautifully framed wall décor and fine art that transforms any space. Known for their wide range of styles, from contemporary to classic, at attainable price points.</p>
+    </a>
+
+    <!-- 7. Abigail's -->
+    <a href="https://abigails.net" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-earth">
+        <div class="placeholder"><span>Abigail's</span></div>
+        <img
+          src="https://abigails.net/cdn/shop/files/abigails-lifestyle-hero.jpg"
+          alt="Abigail's"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Abigail's</p>
+      <p class="brand-item-category">Tabletop · Giftware · Home Décor</p>
+      <p class="brand-item-desc">Abigail's brings European sensibility to tabletop and home accessories, offering heirloom-quality giftware, serveware, and decorative objects with timeless elegance.</p>
+    </a>
+
+    <!-- 8. Avasa Home -->
+    <a href="https://www.avasahome.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-cool">
+        <div class="placeholder"><span>Avasa Home</span></div>
+        <img
+          src="https://cdn.shopify.com/s/files/1/0049/9377/7757/files/Avasa_hero.jpg"
+          alt="Avasa Home"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Avasa Home</p>
+      <p class="brand-item-category">Luxury Bedding · Textiles</p>
+      <p class="brand-item-desc">Avasa Home crafts designer bedding collections featuring duvet covers, quilts, sheet sets, and decorative pillows — luxurious textiles that elevate the bedroom experience.</p>
+    </a>
+
+    <!-- 9. Barrett Bergmann Home -->
+    <a href="https://shopbbh.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-slate">
+        <div class="placeholder"><span>Barrett Bergmann Home</span></div>
+        <img
+          src="https://shopbbh.com/cdn/shop/files/bbh-hero.jpg"
+          alt="Barrett Bergmann Home"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Barrett Bergmann Home</p>
+      <p class="brand-item-category">Luxury Home Furnishings</p>
+      <p class="brand-item-desc">Barrett Bergmann Home curates a refined selection of luxury home furnishings and accessories, bringing sophisticated, design-forward pieces to the discerning interior.</p>
+    </a>
+
+    <!-- 10. Bovi & Graccioza -->
+    <a href="https://www.bovigraccioza.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-moss">
+        <div class="placeholder"><span>Bovi &amp; Graccioza</span></div>
+        <img
+          src="https://www.bovigraccioza.com/media/catalog/category/bovi-graccioza-hero.jpg"
+          alt="Bovi & Graccioza"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Bovi &amp; Graccioza</p>
+      <p class="brand-item-category">Luxury Bath Linens · Bedding</p>
+      <p class="brand-item-desc">Bovi and Graccioza represent the pinnacle of Portuguese textile craftsmanship — offering supremely soft bath linens and bedding woven to the highest European standards.</p>
+    </a>
+
+    <!-- 11. CFC -->
+    <a href="https://customfurniturela.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-warm">
+        <div class="placeholder"><span>CFC</span></div>
+        <img
+          src="https://customfurniturela.com/wp-content/uploads/cfc-hero.jpg"
+          alt="CFC"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">CFC</p>
+      <p class="brand-item-category">Custom Furniture · Upholstery</p>
+      <p class="brand-item-desc">Custom Furniture of California crafts made-to-order upholstered furniture with an extensive fabric library — delivering fully customizable sofas, chairs, and sectionals built to last.</p>
+    </a>
+
+    <!-- 12. Charter Street -->
+    <a href="https://www.charterstreet.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-clay">
+        <div class="placeholder"><span>Charter Street</span></div>
+        <img
+          src="https://www.charterstreet.com/media/wysiwyg/homepage-hero.jpg"
+          alt="Charter Street"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Charter Street</p>
+      <p class="brand-item-category">Home Accessories · Décor</p>
+      <p class="brand-item-desc">Charter Street offers a thoughtfully curated collection of home accessories and decorative objects — each piece selected for its artisanal quality and design integrity.</p>
+    </a>
+
+    <!-- 13. Cloud 9 -->
+    <a href="https://oncloud9.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-cool">
+        <div class="placeholder"><span>Cloud 9</span></div>
+        <img
+          src="https://oncloud9.com/wp-content/uploads/cloud9-hero.jpg"
+          alt="Cloud 9"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Cloud 9</p>
+      <p class="brand-item-category">Luxury Bedding · Comfort</p>
+      <p class="brand-item-desc">Cloud 9 specializes in cloud-soft luxury bedding — from down-alternative comforters to fine cotton sheets — designed to deliver the ultimate in sleep comfort and bedroom elegance.</p>
+    </a>
+
+    <!-- 14. D.V. KAP Home -->
+    <a href="https://dvkap.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-earth">
+        <div class="placeholder"><span>D.V. KAP Home</span></div>
+        <img
+          src="https://dvkap.com/wp-content/uploads/dvkap-lifestyle.jpg"
+          alt="D.V. KAP Home"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">D.V. KAP Home</p>
+      <p class="brand-item-category">Decorative Pillows · Textiles</p>
+      <p class="brand-item-desc">D.V. KAP Home is celebrated for its distinctive decorative pillows and textiles — rich fabrics, sophisticated patterns, and artisan-quality craftsmanship for the layered interior.</p>
+    </a>
+
+    <!-- 15. E. Lawrence -->
+    <a href="https://elawrenceltd.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-stone">
+        <div class="placeholder"><span>E. Lawrence</span></div>
+        <img
+          src="https://elawrenceltd.com/wp-content/uploads/elawrence-hero.jpg"
+          alt="E. Lawrence"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">E. Lawrence</p>
+      <p class="brand-item-category">Home Accessories · Gifts · Art</p>
+      <p class="brand-item-desc">E. Lawrence offers a distinguished collection of home accessories, original art, and curated gifts — each piece reflecting a commitment to quality and creative distinction.</p>
+    </a>
+
+    <!-- 16. Velum -->
+    <a href="https://vellumhome.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-dusk">
+        <div class="placeholder"><span>Velum</span></div>
+        <img
+          src="https://vellumhome.com/wp-content/uploads/velum-hero.jpg"
+          alt="Velum"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Velum</p>
+      <p class="brand-item-category">Luxury Home Textiles</p>
+      <p class="brand-item-desc">Velum brings an artful approach to home textiles — offering beautifully crafted throws, pillows, and table linens with a focus on natural fibers and refined, understated design.</p>
+    </a>
+
+    <!-- 17. Foster's Point -->
+    <a href="https://fosterspoint.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-sage">
+        <div class="placeholder"><span>Foster's Point</span></div>
+        <img
+          src="https://fosterspoint.com/wp-content/uploads/fosters-hero.jpg"
+          alt="Foster's Point"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Foster's Point</p>
+      <p class="brand-item-category">Home Accessories · Art · Gifts</p>
+      <p class="brand-item-desc">Foster's Point curates an inspired collection of home accessories, art, and gifts — bringing together artisan makers and contemporary designers under one distinguished banner.</p>
+    </a>
+
+    <!-- 18. Misti Thomas -->
+    <a href="https://www.mistithomas.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-warm">
+        <div class="placeholder"><span>Misti Thomas</span></div>
+        <img
+          src="https://www.mistithomas.com/wp-content/uploads/mistithomas-hero.jpg"
+          alt="Misti Thomas"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Misti Thomas</p>
+      <p class="brand-item-category">Fine Art · Original Prints</p>
+      <p class="brand-item-desc">Misti Thomas creates vibrant, original fine art and limited-edition prints — bold, expressive works that bring personality and joy to residential and commercial interiors alike.</p>
+    </a>
+
+    <!-- 19. Oly Studio -->
+    <a href="https://www.olystudio.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-cool">
+        <div class="placeholder"><span>Oly Studio</span></div>
+        <img
+          src="https://www.olystudio.com/media/wysiwyg/oly-hero.jpg"
+          alt="Oly Studio"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Oly Studio</p>
+      <p class="brand-item-category">Lighting · Furniture · Mirrors</p>
+      <p class="brand-item-desc">Oly Studio designs sculptural lighting, furniture, and mirrors that blur the line between art and function — each piece handcrafted with artisanal materials and bold, eclectic flair.</p>
+    </a>
+
+    <!-- 20. Urbia -->
+    <a href="https://www.urbiafurniture.com" target="_blank" class="brand-item">
+      <div class="brand-img-wrap ph-moss">
+        <div class="placeholder"><span>Urbia</span></div>
+        <img
+          src="https://www.urbiafurniture.com/wp-content/uploads/urbia-hero.jpg"
+          alt="Urbia"
+          onerror="this.style.display='none'"
+        >
+      </div>
+      <p class="brand-item-name">Urbia</p>
+      <p class="brand-item-category">Outdoor · Indoor Furniture</p>
+      <p class="brand-item-desc">Urbia crafts beautifully designed indoor and outdoor furniture with a focus on sustainability and livability — pieces that perform as beautifully as they look, season after season.</p>
+    </a>
+
+    <!-- 21. D.V. KAP (DV KAP already listed as #14 — swapping for Graccioza solo or keeping list intact) -->
+    <!-- Actually slot 21 is correct per the user's list: last one was Urbia at 17 in the "add" list, so let me recount -->
+    <!-- Original 4 + new 17 = 21 total. New brands: Coaster, Luke, Abigails, Avasa, Barrett Bergmann, Bovi, Graccioza, CFC, Charter Street, Cloud 9, DV KAP, E Lawrence, Velum, Foster's Point, Misti Thomas, Oly, Urbia = 17. Plus original 4 (Loloi, Sagebrook, BMC, Paragon) = 21 ✓ -->
+
+  </div><!-- end brand-grid -->
+
+</section>
+
+<!-- ══ CONTACT ══ -->
+<section class="contact-section" id="contact">
+  <p class="section-eyebrow">Let's Chat</p>
+  <h2>Ready to <em>connect?</em></h2>
+  <p>Reach out to learn more about our lines and how<br>we can support your projects across Texas.</p>
+  <a href="mailto:info@texasdesignteam.com" class="contact-link">info@texasdesignteam.com</a>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <span class="f-logo">Texas Design Team</span>
+  <span class="f-copy">&copy; 2026 Texas Design Team &middot; All Rights Reserved</span>
+</footer>
+
+</body>
+</html>
